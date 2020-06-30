@@ -2,7 +2,15 @@
 
     <% @users.each_with_index do |user, index| %>
         <div class="slide <%= 'showing' if index == 0 %>" data-id="<%= user.id %>">
-            <li><%= user.first_name %></li>
+            <li>
+                <div class="image-carousel" style="background-image: url('<%= url_for user.images.first %>')">
+                </div>
+                <div class="user-details">
+                    <span class="user-name"><%= user.first_name %></span>, 31<br />
+                    <i class="fa fa-graduation-cap mr-1"></i> Job/Studies<br />
+                    <i class="fa fa-map-marker mr-3"></i> Location
+                </div>
+            </li>
         </div>
     <% end %> 
 

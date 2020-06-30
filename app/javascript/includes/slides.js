@@ -22,7 +22,6 @@ $(function(){
         }
 
         $activeSlide.addClass("showing");
-
     }
 
 });
