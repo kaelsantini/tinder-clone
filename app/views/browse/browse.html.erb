@@ -1,22 +1,47 @@
-<ul id="slides">
-
-    <% @users.each_with_index do |user, index| %>
-        <div class="slide <%= 'showing' if index == 0 %>" data-id="<%= user.id %>">
-            <li>
-                <div class="image-carousel" style="background-image: url('<%= url_for user.images.first %>')">
-                </div>
-                <div class="user-details">
-                    <span class="user-name"><%= user.first_name %></span>, 31<br />
-                    <i class="fa fa-graduation-cap mr-1"></i> Job/Studies<br />
-                    <i class="fa fa-map-marker mr-3"></i> Location
-                </div>
+<div class="row">
+    <div class="col-3 col-md-4 bg-white">
+        <%= render "layouts/profile_bar" %>
+        <ul class="nav nav-tinder-sidebar ml-4 mt-3" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Matches</a>
             </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="messages-tab" data-toggle="tab" href="#messages" role="tab" aria-controls="profile" aria-selected="false">Messages</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane ml-2 fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <%= render "browse/matches" %>
+            </div>
+            <div class="tab-pane ml-2 fade" id="messages" role="tabpanel" aria-labelledby="messages-tab">
+                <div class="col">
+                    <p>No messages</p>
+                </div>
+            </div>
         </div>
-    <% end %> 
+    </div>
 
-</ul>
+    <div class="col-9 col-md-8">
+        <ul id="slides">
+            <% @users.each_with_index do |user, index| %>
+                <div class="slide <%= 'showing' if index == 0 %>" data-id="<%= user.id %>">
+                    <li>
+                        <div class="image-carousel" style="background-image: url('<%= url_for user.images.first %>')">
+                        </div>
+                        <div class="user-details">
+                            <span class="user-name"><%= user.first_name %></span>, 31<br />
+                            <i class="fa fa-graduation-cap mr-1"></i> Job/Studies<br />
+                            <i class="fa fa-map-marker mr-3"></i> Location
+                        </div>
+                    </li>
+                </div>
+            <% end %> 
 
-<div id="slide-controls">
-    <span id="decline"><i class="fa fa-times-circle fa-2x"></i></span>
-    <span id="approve"><i class="fa fa-heart fa-2x"></i></span>
+        </ul>
+
+        <div id="slide-controls">
+            <span id="decline"><i class="fa fa-times-circle fa-2x"></i></span>
+            <span id="approve"><i class="fa fa-heart fa-2x"></i></span>
+        </div>
+    </div>
 </div>
