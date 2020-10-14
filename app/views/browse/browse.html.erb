@@ -45,3 +45,29 @@
         </div>
     </div>
 </div>
+
+<div id="converstion">
+    <div class="row">
+        <div class="col-12 top-bar">
+            <%= link_to image_tag(@users.first.images.first, width: "40px", height: "40px", class: "float-left profile-thumb rounded-circle mr-3"), "#" %>
+            <span><%= @users.first.first_name %></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <p>You matched with <span><%= @users.first.first_name %></span> <%= time_ago_in_words(@users.first.created_at) %> ago</p>
+            <%= link_to image_tag(@users.first.images.first, width: "40px", height: "40px", class: "rounded-circle"), "#" %>
+            <p>Send them a message and make them smile :)</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <form>
+                <div class="form-group">
+                    <input type="text" name="message" value="" placeholder="Ender your message and press send" class="form-control" />
+                    <input type="submit" name="submit" value="Send" class="btn btn-success" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
